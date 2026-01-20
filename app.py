@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 from datetime import datetime
-
+import os
 app = Flask(__name__)
 
 TEACHERS = ["teacher1", "teacher2", "teacher3", "teacher4"]
@@ -78,9 +78,10 @@ def latest():
         DATA[teacher_id] = empty_teacher_state()
     return jsonify(DATA[teacher_id])
 
-import os
+
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
+
 
